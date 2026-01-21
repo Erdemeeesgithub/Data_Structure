@@ -17,3 +17,4 @@ car_n.speed #110
 # - __sub__
 # // __div__
 # % __mod__
+#bit wise operations for the quiz
