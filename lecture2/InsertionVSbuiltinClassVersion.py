@@ -14,12 +14,21 @@ def insertion_sort(data_list):
     #   d. insert the target in its final, sorted position
 
     # Coding: Please sort the values in-place, i.e. no new data_list is created and final sorted values are in data_list
-    pass
+    for i in range(1, len(data_list)):
+        key = data_list[i] 
+        j = i - 1
+        
+        while j >= 0 and data_list[j] > key:
+            data_list[j + 1] = data_list[j]
+            j -= 1
+            
+        data_list[j + 1] = key
+    
 
 def python_sort(data_list):
     # Use list.sort()
     # Python built in sort uses Tim-sort
-    pass
+    data_list.sort()
 
 if __name__ == '__main__':
     data1 = []
