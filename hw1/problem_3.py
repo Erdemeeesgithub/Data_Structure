@@ -1,6 +1,13 @@
 def special_generator(n):
-    # TODO: Please write your code here
-    pass
+    for i in range(1, n + 1):
+        if i % 12 == 0:
+            yield "QuadHex"
+        elif i % 4 == 0:
+            yield "Quad"
+        elif i % 6 == 0:
+            yield "Hex"
+        else:
+            yield i
 
 
 # Do not change or remove the code below this point
