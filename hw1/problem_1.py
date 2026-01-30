@@ -4,17 +4,17 @@ class Person:
         self.first_name = first_name
         self.last_name = last_name
         self._age = age
-        self.hobbies = hobbies
+        self.hobbies = list(hobbies)
         
     def introduce(self):
-        if len(self.hobbies) == 1 :
+        if len(self.hobbies) == 1:
             hobby_str = self.hobbies[0]
-        elif len(self.hobbies) == 2: 
+        elif len(self.hobbies) == 2:
             hobby_str = self.hobbies[0] + " and " + self.hobbies[1]
         else:
             hobby_str = ", ".join(self.hobbies[:-1]) + ", and " + self.hobbies[-1]
-            
-        return f'Hi, My name is {self.first_name} {self.last_name}. And I like {hobby_str}'
+
+        return f"Hi, my name is {self.first_name} {self.last_name}. I like {hobby_str}."
     
     def add_hobbies(self, new_hobbies):
         for hobby in new_hobbies:
