@@ -45,7 +45,30 @@ class DoubleLinkedList:
 
     def rotate(self, n):
         # TODO: Please write your code here
-        pass
+        if self._size == 0:
+            return 
+        n = n % self._size
+        if n == 0: 
+            return 
+        
+        old_head = self._header._next
+        old_tail = self._trailer._prev
+        
+        new_head = self._trailer
+        for _ in range(n):
+            new_head = new_head._prev
+            
+        new_tail = new_head._prev
+        
+        old_tail._next = old_head
+        old_head._prev = old_tail
+        
+        self._header._next = new_head
+        new_head._prev = self._header
+        
+        self._trailer._prev = new_tail
+        new_tail._next = self._trailer
+        
 
 
 def main():
