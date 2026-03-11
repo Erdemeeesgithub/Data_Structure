@@ -45,7 +45,11 @@ class DoubleLinkedList:
 
     def reverse(self):
         # TODO: Please write your code here
-        pass
+        curr = self._header
+        while curr is not None: 
+            curr._prev, curr._next = curr._next, curr._prev
+            curr = curr._prev
+        self._header, self._trailer = self._trailer, self._header
 
 
 def main():
