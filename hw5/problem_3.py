@@ -57,8 +57,52 @@ class SingleLinkedList:
         return result + "None"
 
     def sortList(self):
-        # TODO: Please write your code here
-        pass
+        # TODO: Please write your code here  
+        if self._size <= 1:
+            return
+        dummy = self.Node(0)
+        dummy._next = self._head
+        
+        step = 1
+        while step < self._size:
+            prev_tail = dummy
+            curr = dummy._next
+            
+            while curr:
+                left = curr
+                for i in range(step - 1):
+                    if curr._next:
+                        curr = curr._next
+                    else:
+                        break
+                right = curr._next
+                curr._next = None 
+                curr = right
+                for i in range(step - 1):
+                    if curr and curr._next:
+                        curr = curr._next
+                    else:
+                        break
+                
+                next_start = None
+                if curr:
+                    next_start = curr._next
+                    curr._next = None 
+                l1, l2 = left, right
+                while l1 and l2:
+                    if l1._element < l2._element:
+                        prev_tail._next = l1
+                        l1 = l1._next
+                    else:
+                        prev_tail._next = l2
+                        l2 = l2._next
+                    prev_tail = prev_tail._next
+                prev_tail._next = l1 if l1 else l2
+                while prev_tail._next:
+                    prev_tail = prev_tail._next
+                curr = next_start
+            step *= 2
+        self._head = dummy._next
 
 
 def main():

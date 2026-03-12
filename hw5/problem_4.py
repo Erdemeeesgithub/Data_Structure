@@ -58,7 +58,30 @@ class SingleLinkedList:
 
     def isPalindrome(self):
         # TODO: Please write your code here
-        pass
+        if self._size <= 1:
+            return True
+        slow = self._head
+        fast = self._head
+        while fast and fast._next:
+            slow = slow._next
+            fast = fast._next._next
+        prev = None
+        curr = slow
+        while curr:
+            next_node = curr._next
+            curr._next = prev
+            prev = curr
+            curr = next_node
+        first_half = self._head
+        second_half = prev
+        result = True
+        while second_half: 
+            if first_half._element != second_half._element:
+                result = False
+                break
+            first_half = first_half._next
+            second_half = second_half._next
+        return result
 
 
 def main():
