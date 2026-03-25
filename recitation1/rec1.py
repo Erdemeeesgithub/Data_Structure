@@ -10,6 +10,9 @@ car_n = Car("Green", 100)
 car_n.speed_un()
 car_n.speed #110
 
+
+
+
 #car.color      # allowed (clean interface)
 #car._color     # internal
 
